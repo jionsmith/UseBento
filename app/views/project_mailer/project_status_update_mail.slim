@@ -1,0 +1,12 @@
+doctype html
+html[lang="en"]
+  head
+  body
+    p
+      = "Hey " + @to_first_name
+    p
+      = @message
+    p
+      = link_to "Click here to review the project.", project_url(@project), :only_path => false
+
+

@@ -1,0 +1,118 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.mfp-content {
+  #log-in-form, #sign-up-form {
+    a {
+      color: #B0996D;
+    }
+    small {
+      a {
+        color: #718097;
+      }
+    }
+  }
+}
+
+.page_content {
+  &.user_list_content {
+    .left_section {
+      width: 440px;
+      float: left;
+      padding-top: 10px;
+    }
+    .right_section {
+      width: 270px;
+      float: right;
+      padding-bottom: 20px;
+      text-align: right;
+    }
+    .user_box {
+      padding: 0px;
+      table {
+        tr {
+          border: 1px dotted #ccc;
+        }
+      }
+    }
+  }
+  &.designers_list_content {
+    
+    .designer_box {
+      
+
+      table {
+        tr {
+          &.list-item {
+            // cursor: default;
+            
+          }
+          td {
+            .available-area {
+              border-radius: 6px;
+              text-align: center;
+              max-width: 90px;
+              color: white;
+
+              &.available {
+                background-color: #5DB75D;
+              }
+
+              &.unavailable {
+                background-color: #DB524F;  
+              }
+            }
+          }
+        }
+      }
+    }  
+  }
+  &.normal_users_list_content {
+    .convert-user {
+      padding: 5px 15px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+
+.wrapper {
+  &.profile-wrapper {
+    .form-business-card {
+      .form-head {
+        border-bottom: none;
+      }
+      .form-container {
+        border: 1px solid #D1D1D1;
+        background-color: #FCFDFF;
+        padding: 0 35px 30px 35px;
+      }
+    }
+    
+  }
+}
+
+.shell.devise {
+  .section-head.section-head-little-gutter {
+    .form-logo {
+      background: url(/css/images/form-logo.png) no-repeat 0 0;
+      display: inline-block;
+      width: 120px;
+      height: 28px;
+      margin-bottom: 30px;
+    }
+    .separator {
+      border-top: 1px solid #dce3ef;
+      padding-bottom: 35px;
+    }
+  }
+  form {
+    width: 80%;
+    input[type="submit"] {
+      background-color: #B0996D;
+      -webkit-border-radius: 1px;
+      -moz-border-radius: 1px;
+      border-radius: 1px;
+    }
+  }
+}

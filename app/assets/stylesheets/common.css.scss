@@ -1,0 +1,153 @@
+.available-button-area {
+  margin-top: 33px;
+  margin-left: 20px;
+  float: left;
+  .ui.toggle.checkbox .box:before, .ui.toggle.checkbox label:before {
+    background-color: rgba(217, 83, 79, 0.9);
+  }
+}
+
+// redesign headers
+.wrapper, .wrapper-new {
+  font-family: "AvenirNext";
+  background-color: #f1f1f1;
+  header.header {
+    font-family: "AvenirNextRegular";
+    background-color: #232323;
+    color: white;
+
+    .logo {
+      width: 139px;
+      height: 33px;
+      background: url(../css/images/sprite.png);
+      background-position: 0px -104px;
+      background-size: 145px 137px;
+      margin: 29px 0;
+    }
+    .shell {
+      nav.nav {
+        ul {
+          li {
+            a {
+              color: #939393;
+              font-family: AvenirNextRegular;
+              font-size: 13px;
+              font-weight: normal;
+              padding: 36px 0;
+              &:hover {
+                font-weight: bold;
+                color: white;
+              }
+
+              @media (max-width: 980px) {
+                padding: 10px 10px;
+              }
+            }
+            &.current {
+              a {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+      .available-button-area {
+        label {
+          color: white;
+        }
+      }
+    }
+  }
+  .section-contacts {
+    background-color: #f1f1f1;
+  }
+  &#homepage {
+    font-family: "AvenirNext";
+    .btn {
+      font-family: "AvenirNext";
+    }
+    header.header {
+
+      .shell {
+        nav.nav {
+          letter-spacing: 0;
+          ul {
+            li {
+              padding-left: 50px;
+              a {
+                color: #939393;
+                font-family: AvenirNextRegular;
+                font-size: 13px;
+                font-weight: normal;
+                // padding: 30px 0;
+                &:hover {
+                  font-weight: bold;
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.header-top {
+        height: 90px;
+        // background-color: #232323;
+        // box-shadow: 0 1px 3px rgba(3, 4, 1, 0.06);
+        .shell {
+          width: 1200px;
+          margin: 0 auto;
+        }
+        @media (max-width: 1200px) {
+          .shell {
+            width: auto;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
+
+
+  .main {
+    &.contact-main {
+      .sidebar {
+        display: none;
+      }
+      .form-body {
+        padding: 50px;
+        // padding-bottom: 30px;
+        background-color: #FCFDFF;
+        border: 1px solid #D1D1D1;
+        text-align: left;
+      }
+    }
+  }
+
+  // for overwriting the webflow.css
+  .section {
+    text-align: left;
+  }
+}
+
+.footer {
+  &.footer-homepage {
+    .copy-link {
+      color: #919191;
+      margin: 0 10px;
+      &:first-child {
+        margin-left: 20px;
+      }
+    }
+    @media (max-width: 730px) {
+      ul {
+        li {
+          display: block;
+        }
+      }
+      .copy-link {
+        display: block;
+      }
+    }
+  }
+}
+

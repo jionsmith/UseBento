@@ -1,0 +1,80 @@
+.wrapper.project-wrapper
+  = render partial: 'header', locals: {page: 'project'}
+  .section.section-contacts
+    .shell
+      .form.form-apply.form-business-card
+        .section-head.form-head
+          h2
+            = @service.title
+          p
+            == @service.description
+          br
+          p
+            span
+              i.ico-mouse
+              |  &nbsp; 
+              = @service.rounds
+              |   rounds of design &nbsp; &nbsp;
+        .form-container
+          form-required#project-form
+            input[type="hidden" name="application-form"]
+            input[type="hidden" name="project_id" value=@project.id]
+            input#plus-dev-price[type="hidden" name="plus_dev_price" value=@service.plus_dev_price]
+            input#responsive-price[type="hidden" name="responsive_price" value=@service.responsive_price]
+            input[type="hidden" name="service_name" value=@service.name]
+            = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) 
+            .form-body
+              .form-row
+                .form-cols
+                  .form-col.form-col-1of2
+                    label.form-label[for="field-full-name"]
+                      | Your Full Name
+                    .form-controls
+                      - if user_signed_in?
+                        = @project.user.full_name
+                        input#field-full-name.field[type="hidden" name="full_name" value=@project.user.full_name]
+                      - else
+                        input#field-full-name.field[type="text" name="full_name" required data-validation-type="['presence']" value=@project.answer_for('full_name').answer]
+                  .form-col.form-col-1of2
+                    label.form-label[for="field-e-mail"]
+                      | Email Address
+                    .form-controls
+                      - if user_signed_in?
+                        = @project.user.email
+                        input#field-e-mail.field[type="hidden" name="email" value=@project.user.email]
+                      - else
+                        input#field-e-mail.field[type="email" name="email" value=@project.answer_for('email').answer required data-validation-type="['email']"]
+              .form-row
+                .form-cols
+                  .form-col.form-col-1of2
+                    label.form-label[for="field-name-business"]
+                      | What is the name of the business?
+                    .form-controls
+                      input#field-name-business.field[type="text" name="business_name" value=(@project.answer_for('business_name').answer || (user_signed_in? ? current_user.company : '')) required data-validation-type="['presence']"]
+                  .form-col.form-col-1of2
+                    label.form-label[for="field-name-project"]
+                      | What is the name of this project?
+                    .form-controls
+                      input#field-name-project.field[type="text" name="project_name" value=@project.answer_for('project_name').answer required data-validation-type="['presence']"]
+              .form-row
+                .form-cols
+                  .form-col.form-col-1of2
+                    label.form-label[for="field-name-deadline"]
+                      | Deadline
+                    .form-controls
+                      input#field-name-deadline.field[type="text" name="project_deadline" value=@project.answer_for('project_deadline').answer required data-validation-type="['presence']"]
+              .form-row
+                label.form-label[for="field-describe-business"]
+                  | Description of the project.
+                .form-controls
+                  textarea#field-describe-business.textarea[type="text" cols="10" rows="10" name="business_description" required data-validation-type="['presence']"]
+                    = @project.answer_for('business_description').answer
+              = render partial: @service.partial_name
+              = render partial: 'long_questionaire_form'
+            
+- if !((current_user && (current_user.admin || current_user == @project.user)) || !@project.created_at)
+  script
+    | $(document).ready(function() { $('.form-container input, textarea').prop('disabled', true); });
+      
+/ = render partial: 'footer'
+= render partial: 'dark_footer'

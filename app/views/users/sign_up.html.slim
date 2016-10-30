@@ -1,0 +1,40 @@
+.access
+  .form.form-access.form-sign-up
+    form[action="/users/sign_up" id="sign-up-form" method="post"]
+      .popup-body
+        .form-head
+          a.form-logo[href="#"]
+          .separator
+          h2
+            | Get Started for
+            strong
+              | Free
+          small
+            | No credit card needed.
+        .form-body
+          .form-errors#sign-up-errors
+          .form-row
+            .form-controls
+              input#field-name.field[type="text" name="name" required placeholder="Name *"]
+          .form-row
+            .form-controls
+              input#field-email-address.field[type="text" name="email-address" required placeholder="Email Address *"]
+          .form-row
+            .form-controls
+              input#field-password.field[type="password" name="password" required placeholder="Password *" ]
+          .form-row
+            .form-controls
+              input#field-company-name.field[type="text" name="company-name" placeholder="Company Name *" required]
+        .form-actions
+          input.form-btn.btn.brown[type="submit" value="sign up free"]
+      .form-foot
+        p
+          small
+            | By clicking "Sign Up Free" I agree to Bento’s &nbsp;
+            a[href="#"]
+              | Terms of Service.
+        p
+          span
+            | Already have an Account? &nbsp;
+            a.popup-link[href="/popups/login"]
+              | Log In!

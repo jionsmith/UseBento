@@ -1,0 +1,157 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper {
+
+  .table_box .subtitle td, .table_box .subtitle th {
+    font-family: 'AvenirNext';
+  }
+  .center_container {
+    .project_detail_box {
+      .left_container {
+        ul.list_comment li .dtl_box h4 {
+          // font-family: 'AvenirNext';
+        }
+      }
+      .right_container {
+        ul.box_list li h5 {
+          // font-family: 'AvenirNext';
+        }
+        #enter-designer-invite {
+          .ui.dropdown{
+            margin-right: 0.75em;
+          }
+        }
+      }
+    }
+  }
+
+  .page_content {
+    .project_box {
+      .table_box {
+        .footable-toggle {
+          display: none;
+        }
+        thead tr {
+          text-align: left;
+          th {
+            padding: 16px 25px 16px;
+          }
+        }
+        @media screen and (max-width: 840px) {
+          thead tr th {
+            padding: 10px 15px 10px;
+          }
+          .tbl_row td {
+            padding: 10px 15px 10px;
+            a.btn_small {
+              padding: 4px 6px 4px 6px;
+              min-width: 72px;
+            }
+          }
+        }
+        @media screen and (max-width: 480px) {
+          thead tr th {
+            padding: 10px 5px 10px;
+          }
+          .tbl_row td {
+            padding: 10px 5px 10px;
+          }
+        }
+      }
+    }
+  }
+  
+  &.project-wrapper {
+    .form-business-card {
+      .form-head {
+        border-bottom: none;
+      }
+      .form-container {
+        border: 1px solid #D1D1D1;
+        background-color: #FCFDFF;
+        padding: 25px 35px 30px 35px;
+
+        .form-controls {
+          &.grey-background {
+            background-color: #f4f6fa;
+          }
+        }
+      }
+    }
+  }
+
+  &.projects-start {
+    min-height: inherit;
+  }
+  @media screen and (max-width: 840px) {
+    .center_container {
+      padding: 45px 5px;
+      .project_detail_box {
+        .row_box_split {
+          display: block;
+          .left_title {
+            display: block;
+            padding: 21px 10px 21px;
+            width: inherit;
+            h2 {
+              font-size: 20px;
+            }
+          }
+          .right_chats {
+            display: block;
+            height: 70px;
+          }
+        }
+        .table-row {
+          display: block;
+          .left_container {
+            display: block;
+            width: initial;
+            padding: 0;
+            .project-message {
+              img {
+                width: 100%;
+              }
+            }
+            
+            #message-form-li {
+              .post_img {
+                img {
+                  display: none;
+                }
+              }
+              #message-form {
+                #message-box {
+                  padding: 20px 10px;
+                  width: 100%;
+                }
+                .bottom_box {
+                  #add-comment {
+                    margin-right: -20px;
+                  }
+                }
+              }
+            }
+          }
+          .right_container {
+            // display: block;
+            display: none;
+            float: right !important;
+            padding: 0 5px 0 0;
+            width: 280px;
+          }
+        }
+      }
+    }
+    
+  }
+
+    
+}
+
+@media screen and (max-width: 640px) {
+  .projects-start .shell.start-project .section-body.start-form button {
+    width: 100%;
+  }
+}

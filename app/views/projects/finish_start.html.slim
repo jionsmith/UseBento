@@ -1,0 +1,110 @@
+.wrapper.dark
+  = render partial: 'dark_header', locals: {page: 'start_project'}
+  .section.section-project
+    .shell.start-project
+      .form.form-apply.form-business-card
+        .section-head.section-head-little-gutter
+          h3
+            | JUST A BIT MORE INFORMATION
+        form.form-required#start-form[action="/projects/submit_start" method="post"]
+          = tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token)
+          input[type="hidden" name="project_type" value=@type]
+          input[type="hidden" name="service_name" value=@service.name]
+          .section-body.start-form
+            .form-body
+              .form-row
+                .form-cols
+                  .form-col.form-col-1of2
+                    label.form-label[for="field-name-project"]
+                      | Give your project a name.
+                      span.form-asterisk
+                        |  *
+                    .form-controls
+                      input#field-name-project.field[type="text" name="project_name" required data-validation-type="['presence']"]
+                  .form-col.form-col-1of2
+                    label.form-label[for="field-deadline"]
+                      | Deadline
+                      span.form-asterisk
+                        |  *
+                    .form-controls
+                      input#field-deadline.field[type="text" name="project_deadline" placeholder="MM/DD" pattern="\d{1,2}/\d{1,2}(/\d{2,4})?" required data-validation-type="['presence']"]
+              .form-row
+                label.form-label[for="field-describe-business"]
+                  | Describe your project in a couple sentences.
+                  span.form-asterisk
+                    |  *
+                .form-controls
+                  textarea#field-describe-business.textarea[type="text" cols="10" rows="10" name="business_description" required data-validation-type="['presence']" placeholder="What is it? Who is it for? What do you want them to do?"]
+              - if @service.name != "business_card"
+                = render partial: 'number_of_pages_form'                
+                / - if ["website_design_and_development","presentation_design"].include?(@service.name)
+                /   .form-row
+                /     .form-controls
+                /       textarea#estimated-cost.textarea[type="text" disabled="disabled" placeholder="Your estimated price is $#{@service.price}/pg"]
+                / - else
+                /   .form-row
+                /     .form-controls
+                /       textarea#estimated-cost.textarea[type="text" disabled="disabled" placeholder="Your estimated price is $#{@service.price}"]
+
+                .form-row
+                    .form-controls
+                      textarea#estimated-cost.textarea[type="text" disabled="disabled" placeholder="Your estimated price is $#{@service.price}"]
+              .form-row.align-right
+                button.brown[type="submit"]
+                  | CONTINUE >
+          input[type="hidden" name="design_price" value=@service.name]
+          input[type="hidden" name="design_price" id="design_price" value=@service.price]
+          input[type="hidden" name="plus_dev_price" id="plus_dev_price" value=@service.plus_dev_price]
+
+
+= render partial: 'dark_footer'
+/ = render partial: 'finish_start', formats: 'js'
+
+javascript:
+  
+  var service_json = #{raw @service.to_json};
+  console.log(service_json);
+  jQuery(document).ready(function($) {
+
+    updateEstimatedPrice();
+    
+    $('#field-design-only').on('click', function() {
+      updateEstimatedPrice();
+    });
+
+    $('#field-design-and-development').on('click', function() {
+      updateEstimatedPrice();
+    });
+
+    $('.counter-field').on('change', function() {
+      updateEstimatedPrice();
+    });
+
+    function updateEstimatedPrice() {
+      var price = parseInt($('#design_price').val());
+      var plus_dev_price = parseInt($('#plus_dev_price').val());
+      if (plus_dev_price == 0 || isNaN(plus_dev_price)) {
+        plus_dev_price = price;
+      }
+      var page_count = parseInt($('#pages-count').val());
+      console.log(page_count);
+      var total_price;
+      if($("#field-design-only").is(':checked')) {
+        total_price = price * page_count;
+      } else {
+        total_price = plus_dev_price * page_count;
+      }
+
+      if(service_json.name == 'stationary_design') {
+        if(total_price < 300) {
+          total_price = 300;
+        }
+      }
+
+      // console.log(total_price);
+      $('#estimated-cost').attr("placeholder", "Your estimated price is $" + total_price.toString());
+    }
+
+  });
+  
+

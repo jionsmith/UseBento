@@ -1,0 +1,22 @@
+doctype html
+html[lang="en"]
+  head
+  body
+    p
+      = @user.first_name
+      | ,
+    p
+      | Welcome to Bento. Your temporary password is   
+      = @password
+      | . To change it just click 
+      = link_to "here", root_url + "/profile", :only_path => false
+      | .
+    - if @project
+      p
+        | To get started on your project, go to your 
+        = link_to "project page", root_url + "/projects/" + @project.id.to_s
+        | .
+    p
+      | If you have any questions, simply reply to this email.  We look forward to working with you and assisting you with your design needs in a timely and professional manner.
+    p
+      | -Bento

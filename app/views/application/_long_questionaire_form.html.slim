@@ -1,0 +1,35 @@
+- for action in [{name: 'desired_visitor_action', rows: 2}, {name: 'competitors', rows: 2}, {name: 'links', rows: 2}, {name: 'tagline', rows: 1}, {name: 'target_audience', rows: 1}, {name: 'color_preferences', rows: 1}, {name: 'font_preferences', rows: 1}, {name: 'inspiration', rows: 3}, {name: 'definite_nos', rows: 2}, {name: 'other_info', rows: 2}]
+  - if @project.service.has_question(action[:name])
+    .form-row
+      label.form-label[for=("field-" + action[:name])]
+        = @project.service.lookup_question(action[:name]).label
+      .form-errors
+        = get_error(action[:name])
+      .form-controls
+        - if action[:rows] > 1
+          textarea.textarea.textarea-small[id=("field-" + action[:name]) type="text" cols="10" rows=action[:rows].to_s name=action[:name] value=(@project.answer_for(action[:name]).answer)]
+            = @project.answer_for(action[:name]).answer
+        - else
+          input.field[id=("field-" + action[:name]) type="text" name=action[:name] value=(@project.answer_for(action[:name]).answer)]
+
+- if !((current_user && (current_user.admin || current_user == @project.user)) || !@project.created_at)
+  .form-row
+    .outlined-box
+      label
+        - if ['logo_design', 'stationary_design', 'business_card', 'presentation_design', 'social_media_design', 'banner_ads', 'mobile_app', 'app_icon', 'landing_page_design_and_development', 'email_design_and_development', 'wordpress_design_and_development', 'website_design_and_development'].member?(@project.service.name)
+          | Please provide any of the following files
+      ul
+        - if ['business_card', 'presentation_design', 'social_media_design', 'website_design_and_development', 'wordpress_design_and_development', 'email_design_and_development', 'landing_page_design_and_development', 'mobile_app', 'app_icon', 'banner_ads', 'stationary_design'].member?(@project.service.name)
+          li        
+            | Your logo
+          li
+            | Your Style Guide
+          li
+            | Any icons or other assets for the project
+      button.btn.upload-btn#upload-btn[type="button"]
+        | Upload files 
+        .fa.fa-cloud-upload
+      input#file-upload.hidden[type="file"]
+.form-row
+  #uploading-files
+    

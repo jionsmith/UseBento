@@ -1,0 +1,28 @@
+.access
+  .form.form-access
+    form#log-in-form[action="?" method="post"]
+      .popup-body
+        .form-head
+          a.form-logo[href="#"]
+          .separator
+          h2
+            | Log In to Your Bento Account
+        .form-body
+          .form-errors#log-in-errors
+          .form-row
+            .form-controls
+              input#field-email.field[type="text" placeholder="Email *" name="field-email" value=@saved_email]
+          .form-row
+            .form-controls
+              input#field-password.field[type="password" placeholder="Password *" name="field-password"]
+        .form-actions
+          input.form-btn.btn.brown[type="submit" value="Login"]
+      .form-foot.form-foot-secondary
+        p
+          span
+            a.popup-link[href="/popups/password"]
+              | Forgot Password?
+          span
+            |  Don’t have an account? &nbsp;
+            a.popup-link[href="/popups/sign_up"]
+              |    Get Started

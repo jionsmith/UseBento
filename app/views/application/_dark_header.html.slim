@@ -1,0 +1,44 @@
+/ header[class=((page == 'home-top' ? 'header-top ' : (page == 'home-secondary' ? 'header-secondary ' : '')) + 'header header-dark ' + (page == 'apply' || page == 'contact' ? 'text-capital' : ''))]
+header[class=((page == 'home-top' ? 'header-top ' : (page == 'home-secondary' ? 'header-secondary ' : '')) + 'header header-dark ')]
+  a.expand[href="#"]
+  .shell
+    a.logo[href="/"]
+      | Bento
+      span.logo-bw
+        i.sprite-logo
+      span.logo-colorful
+        i.sprite-logo-colorful
+    nav.nav
+      ul
+        - if (!user_signed_in? || page == 'start_project')
+          li class=(page == 'start_project' ? 'current' : '')
+            = link_to "start your project", "/projects/start"
+        - if user_signed_in?
+          li class=(page == 'project' ? 'current' : '')
+            = link_to "projects", "/projects/list"
+        - unless user_signed_in?
+          / li class=(page == 'agencies' ? 'current' : '')
+          /   = link_to "for agencies", "/agencies"
+          li class=(page == 'apply' ? 'current' : '')
+            = link_to "join the team", "/apply"
+        - unless page == 'project' && !user_signed_in? && false
+          - unless user_signed_in?
+            li[ class=(page == 'profile' ? 'current' : '')]
+              - if mobile_device?
+                a.popup-link-mobile#userlink[href="/popups/login"]
+                  | login
+              - else
+                a.popup-link#userlink[href="/popups/login"]
+                  | login
+          - else
+            li[ class=(page == 'profile' ? 'current' : '')]
+              a#userlink[href="/profile" data-userid=current_user.id]
+                | profile
+        - else
+          li
+            - if mobile_device?
+              a.popup-link-mobile.hidden#userlink[href="/popups/login"]
+                | login
+            - else
+              a.popup-link.hidden#userlink[href="/popups/login"]
+                | login

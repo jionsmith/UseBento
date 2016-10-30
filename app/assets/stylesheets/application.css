@@ -1,0 +1,681 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery.selectbox
+ *= require magnific-popup
+ *= require transition
+ *= require checkbox
+ *= require dropdown
+ *= require footable.core
+ *= require common
+ *= require payments
+ *= require projects
+ *= require services
+ *= require users
+ *= require style
+ *= require style-redesign
+ *= require welcome
+ *= require normalize
+ *= require webflow
+ *= require newbento.webflow
+ *= require_self
+ */
+
+.form-errors {
+    margin: 0;
+    padding: 0;
+    color: rgb(220,50,20);
+    font-weight: bold;
+    font-size: 0.8em;
+    position:relative;
+    top: -0.5em;
+}
+
+.form-business-card .counter-input {
+float: none;
+padding-left: 0;
+border: 1px solid #DCE3EF;
+border-radius: 3px;
+}
+
+.form-business-card .counter-field {
+line-height: 60px;
+height: 60px;
+font-size: 20px;
+border-left: 1px solid #DCE3EF;
+border-right: 1px solid #DCE3EF;
+}
+
+.form-header-row {
+border-bottom: 1px solid #d1dae8;
+padding-bottom: 0.5em;
+margin-bottom: 1em;
+padding-top:1em;
+}
+
+.form-row .errors {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #ee5544; }
+
+.form-row .success {
+    font-size: 0.8em;
+    font-weight: bold; }
+
+.list-item:hover {
+    cursor: pointer;
+    background-color: #F6f6f6; }
+
+.intro-bg {
+    z-index: -1;}
+
+.intro {
+    background-image: url('/css/images/desk.jpg');
+    background-size: cover; }
+
+.form.form-access.form-sign-up .form-foot p {
+margin-bottom: 20px;
+}
+
+.col_flex {
+width: auto;
+float: left;
+padding-right: 1.5em;
+}
+
+
+.post_img img {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px; }
+
+
+button.btn.btn-sm {
+    padding: 0.25em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    font-weight: normal !important;
+    font-family: 'open sans';
+    font-size: 12px;
+    }
+
+button.btn.btn-sm.btn-edit-payment {
+    margin-left: 1em; }
+
+#project-invoice {
+    position: relative; }
+
+#new-payment-amount-popup {
+    position: absolute;
+    width: 18em;
+    height: 8em;
+    border: 1px solid #d7d7d7;
+    background-color: white;
+    display: none;
+    padding: 1.5em;
+    text-align: center; }
+
+#new-payment-amount-popup  input.field{
+    margin-top: 0.75em;
+    clear: both;
+    margin-bottom: 0.75em; }
+
+#new-payment-amount-popup  input.submit{
+    padding: 0.5em;
+    height:auto;
+    padding-left:1em;
+    padding-right:1em;
+    font-size: 0.8em; }
+
+.new-payment-amount {
+    display: inline;
+    display: none;
+}
+.new-payment-amount input.field {
+width: 4em;
+border: 1px solid #dce3ef;
+margin-left: 0.2em;
+margin-right: 0.35em;
+background: #f4f6fa;
+border-radius: 3px;
+overflow: hidden;
+height: auto;
+padding: 0.2em 0.4em;
+box-sizing: border-box;
+}
+
+a.btn-edit-payment, a.submit-payment {
+    cursor: pointer; }
+
+.devise .field input[type="checkbox"] {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    height: auto;
+    margin-right: 0.66em;
+}
+
+.devise .field input {
+width: 100%;
+border: 1px solid #dce3ef;
+background: #f4f6fa;
+border-radius: 3px;
+overflow: hidden;
+height: 50px;
+padding: 12px;
+box-sizing: border-box;
+}
+.devise .field br {
+    display: none;
+}
+.devise .field {
+    margin-bottom: 1.25em;
+}
+.devise .field label {
+font-weight: 700;
+color: #525f71;
+padding-bottom: 15px;
+display: inline-block; }
+
+.devise input[type="submit"], .devise button {
+background: #5661e8;
+border-radius: 5px;
+color: #fff;
+font-family: 'proxima_nova_rgbold', arial, serif;
+font-size: 15px;
+text-transform: uppercase;
+padding: 15px 44px;
+display: inline-block;
+border: 0;
+cursor: pointer;
+-webkit-transition: all 0.3s;
+-o-transition: all 0.3s;
+transition: all 0.3s;
+margin-bottom: 0.75em;
+}
+
+#progress-bar {
+    display: none;
+}
+
+.devise form {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 35%;
+}
+
+.devise {
+    text-align: center; }
+
+
+textarea.textarea.textarea-small {
+    height: 5em; }
+
+.outlined-box {
+    width: calc(100% - 3.3em);
+    border-radius: 0.14em;
+    border: 0.15em solid #dbe2f2;
+    padding: 1.5em;
+    padding-top: 0.75em; }
+
+.outlined-box label {
+    font-weight: bold;
+    clear: both;
+    display: block;
+    font-size: 1.15em; }
+
+.outlined-box ul {
+    padding-top: 0.75em;
+    padding-left: 1.5em;
+    padding-bottom: 1em; }
+
+.outlined-box ul li{
+    list-style-type: circle; }
+
+button.btn.upload-btn {
+    background-color: #899eb9;
+    font-weight: normal !important;
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+}
+
+#uploading-files .attachment {
+    position: relative;
+    width: 5em;
+    height: 5em;
+    display: inline-block;
+    text-align: center;
+    margin-right: 1.5em;
+    background-color: #f5f5f9;
+    color: #767b91;
+    border: 0.1em solid #8a9eb7; }
+
+#uploading-files .attachment .label {
+    max-width: 4.3rem;
+    margin-left: 0.35em;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.7em; }
+
+#uploading-files .attachment .close-link{
+    position: absolute;
+    top: -0.3em;
+    right: -0.3em;
+    width: 1.15em;
+    height: 1.15em;
+    color: white;
+    background-color: #474b57;
+    z-index:10;
+    border-radius: 0.5em; }
+
+#uploading-files .attachment .close-link:hover{
+    cursor: pointer;
+    background-color: #899eb9; }
+
+#uploading-files .attachment .paperclip {
+    font-size: 2em;
+    color: #90a0ba;
+    margin-top: 0.4em;
+    margin-bottom: 0em; }
+
+
+.people-entry .avatar {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 1.25em;
+    float: left;
+    margin-right: 0.75em;
+}
+
+#enter-invite #enter-email, #enter-designer-invite #enter-designer-email {
+    height: 1.5em;
+    border: 0.12em solid #bababa;
+    border-radius: 0.25em;
+    padding: 0.75em;
+    margin-right: 0.75em;
+    width: 60%;
+}
+
+#enter-invite #submit-invite {
+    cursor: pointer; }
+
+.hidden {
+    display: none!important; }
+
+.right_container ul.box_list li .col_four.people-entry span.invite-sent {
+    font-weight: normal;
+    font-family: 'Open Sans', Arial, sans-serif;
+    padding-top: 0.15em;
+    font-size: 15px;
+    color: #888;
+    font-style: italic; }
+
+.no-email span {
+    padding-top: 0.5em; }
+
+
+.site-popup .popup-body .popup-head h2{
+    font-weight: normal;
+    margin-bottom: 1em; }
+
+.site-popup .popup-body {
+    padding-top: 1em;
+    text-align: center; }
+
+.site-popup .popup-foot {
+    font-size: 0.9em;
+    line-height: 1.5;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    padding-bottom: 1rem;
+    }
+
+.site-popup .btn {
+    margin-top: 1em; }
+
+.site-popup p {
+    padding-bottom: 1em;
+    }
+
+.site-popup .separator {
+    height: 1px;
+    width: 100%;
+    border-top: 1px solid #eee;
+    }
+
+
+.section-head a.right-link {
+    float: right;
+    display: block;
+    padding-top: 0.5em;
+}
+
+.right {
+    margin-left: 0.66em;
+    float: right; }
+
+a.right {
+    cursor: pointer; }
+
+a.delete {
+    color: #888; }
+
+#error_explanation h2 { display: none; }
+#error_explanation ul li {list-style-type: none; }
+
+.dtl_box a.right.fa, .light-gray {
+    color: #bcbbbb; }
+
+button.btn.btn-sm.message-save-button {
+    margin-right: -0.25em; }
+
+.project_detail_box .row_box_split {
+    border-bottom: 1px solid #d7d7d7;
+    width:100%;
+    display:table; }
+
+.project_detail_box .row_box_split .left_title {
+    width: 775px;
+    border-right: 1px solid #d7d7d7;
+    display:table-cell;
+    padding: 21px 30px 21px 30px; }
+
+.project_detail_box .row_box_split .right_chats {
+    position:relative;
+    display: table-cell; }
+
+.project_detail_box .row_box_split .right_chats a.chat-row {
+    display:block;
+    color: #525f71;
+    font-size: 14px;
+    padding-top: 3px;
+    height: calc(50% - 3px);
+    padding-left: 15px; }
+
+.project_detail_box .row_box_split .right_chats a.chat-row#group-chat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; }
+
+.project_detail_box .row_box_split .right_chats a.chat-row.selected {
+    background-color:#d9e9f9; }
+
+.project_detail_box .row_box_split .right_chats a.chat-row:hover {
+    text-decoration: none;
+    cursor:pointer;
+    background-color:#d9e9f9; }
+
+.project_detail_box .row_box_split .right_chats a.chat-row#private-chat {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0; }
+
+.table-row {
+    display: table-row; }
+
+.left_container, .right_container {
+    display: table-cell;
+    float: none !important;
+    vertical-align: top; }
+
+span.unread-tag {
+    margin-left: 18px;
+    display:inline-block;
+    border-radius: 9px;
+    background-color: #f20022;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: bold;
+    height: 19px;
+    padding-top: 0px;
+    line-height: 17px;
+    color: white; }
+
+span.unread-tag[data-count="0"] {
+    display: none; }
+
+span.unread-tag.notification {
+    margin-left: -20px;
+    margin-top: -5px;
+    position: absolute;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    height: 18px;
+    font-size: 14px;
+    border-radius: 12px;
+    }
+
+.header-dark {
+    border-bottom: 0;
+    background-color: #232323; }
+
+.header.header-dark .logo {
+    background-image: none;
+    text-indent: 0; }
+
+.header.header-dark .nav a {
+    color: #fcfcfc;
+    font-weight: normal; }
+
+.header-dark.header .nav .current a {
+  color: #fff;
+}
+
+.wrapper.dark, .wrapper.dark .section {
+    background-color: #f1f1f1; }
+
+.shell.start-project {
+    /*width: 820px; */
+}
+
+.shell.start-project h3 {
+color: #212F44;
+font-family: "AvenirNext";
+font-weight:normal;
+line-height: 1.25;
+font-size: 28px; }
+
+
+.shell.start-project .section-body.start-form button.brown:hover {
+    -webkit-transition: 200ms;
+         -o-transition: 200ms;
+            transition: 200ms;
+background-color: #dbc08c;
+}
+.shell.start-project .section-body.start-form button.brown {
+    -webkit-transition: 500ms;
+         -o-transition: 500ms;
+            transition: 500ms;
+}
+
+
+.btn.brown:hover {
+    -webkit-transition: 200ms;
+         -o-transition: 200ms;
+            transition: 200ms;
+background-color: #dbc08c;
+}
+.btn.brown {
+    -webkit-transition: 500ms;
+         -o-transition: 500ms;
+            transition: 500ms;
+border: 0;
+background-color: #B0996D;
+color: #FFF;
+font-family: "AvenirNext";
+font-size: 15px;
+font-weight: 600;
+}
+
+.shell.start-project .section-body.start-form {
+padding: 50px;
+padding-bottom: 30px;
+background-color: #FCFDFF;
+border: 1px solid #D1D1D1; }
+
+.shell.start-project .section-body.start-form label {
+opacity: 0.8;
+color: #212F44;
+font-family: "AvenirNext";
+font-size: 14px; }
+
+.shell.start-project .section-body.start-form .form-row {
+margin-bottom: 20px; }
+
+
+.shell.start-project .section-body.start-form input,
+.shell.start-project .section-body.start-form select,
+.shell.start-project .section-body.start-form textarea {
+color: #212F44;
+font-family: "AvenirNext";
+font-size: 18px;
+width: 100%;
+/*width: calc(100% - 15px);*/
+margin-top: 8px;
+padding-left: 15px;
+border-radius: 0;
+height: 54px;
+background-color: #F4F6FA;
+border: 1px solid #DDD; }
+
+.shell.start-project .section-body.start-form select {
+    width: 100%; }
+
+.shell.start-project .section-body.start-form textarea {
+    padding-top: 20px;
+    height: 170px; }
+
+.shell.start-project .section-body.start-form textarea#estimated-cost {
+    /*height: 45px;*/
+    height: 60px;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 0px; }
+
+.shell.start-project .section-body.start-form button {
+    width: 240px;
+    height: 50px;
+    border: 0;
+    background-color: #B0996D;
+    color: #FFF;
+    font-family: "AvenirNext";
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 10px; 
+}
+
+.shell.start-project .section-body.start-form .number-of-pages-row button, .number-of-pages-row button.counter-control {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    display: block;
+    background: none;
+    background-color: #F5F6FA;
+    color: #202F44;
+    font-size: 23px;
+}
+
+.shell.start-project .section-body.start-form .number-of-pages-row .counter-field {
+    height: 60px;
+    margin: 0;
+    border: none;
+    padding: 0;
+    width: 50px;
+    background-color: white;
+    color: #202F44;
+}
+label.form-label-radio {
+    margin: 0;
+}
+
+.number-of-pages-row .list-radios-custom .radio input:checked + span { 
+    background-color: #202F44;
+    
+}
+
+.number-of-pages-row .list-radios-custom .radio span {
+    padding: 0 19px;
+}
+
+.btn:hover { background: #dbc08c; }
+
+.align-right {
+    text-align: right; }
+
+.footer-homepage .copyright {
+    margin-top: 0;
+    color: #919191;
+}
+
+.footer-homepage, .header.header-dark .nav li a {
+    font-family: AvenirNextRegular; }
+
+.footer-homepage .nav {
+padding-bottom: 30px;
+}
+
+.header.header-dark .nav li.current a {
+color: #fff;
+}
+.header.header-dark .nav li a {
+color: #939393;
+}
+
+.header.header-dark .nav li a:hover {
+    color:#fff;
+    font-weight: bold; }
+
+.header.header-dark .nav a:before {
+    border-top: 0; }
+
+
+#login-signup-parts {
+    display: none; }
+
+.login-part { 
+    display: none; }
+
+a{
+ cursor: pointer; }
+
+.detail-label {
+    display: inline-block;
+    width: 7em; }
+
+
+.can-see-invoice {
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.25s linear; 
+    padding-right: 2em; }
+
+.can-see-invoice.cant {
+    color: #d2d2d2; }
+
+.can-see-invoice.cant:hover {
+    color: #525f71;
+    transition: all 0.5s linear; }
+
+.can-see-invoice.can {
+    color: #525f71; }
+
+.can-see-invoice.can:hover {
+    color: #d2d2d2;
+    transition: all 0.5s linear; }

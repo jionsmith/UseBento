@@ -1,0 +1,91 @@
+header[class=((page == 'home-top' ? 'header-top ' : (page == 'home-secondary' ? 'header-secondary ' : '')) + 'header')]
+  a.expand[href="#"]
+  .shell
+    a.logo[href="/"]
+      | Bento
+      span.logo-bw
+        i.sprite-logo
+      span.logo-colorful
+        i.sprite-logo-colorful
+    - if (user_signed_in? )
+      input[type="hidden" name="user-id" id="user-id" value=current_user.id]
+      .available-button-area
+        - if current_user.designer && page == 'profile'
+          - if current_user.designer_profile.available
+            .ui.toggle.checkbox
+              input type="checkbox" checked="checked" /
+            label AVAILABLE
+          - else
+            .ui.toggle.checkbox
+              input type="checkbox" /
+            label UNAVAILABLE
+        - if current_user.designer && page == 'project'
+          - if current_user.designer_profile.available
+            .ui.toggle.checkbox
+              / input type="checkbox" checked="checked" disabled="disabled" /
+              input type="checkbox" checked="checked" /
+            label AVAILABLE
+          - else
+            .ui.toggle.checkbox
+              input type="checkbox" /
+            label UNAVAILABLE
+    nav.nav
+      ul
+        - if (!user_signed_in? || page == 'start_project')
+          li class=(page == 'start_project' ? 'current' : '')
+            = link_to "START YOUR PROJECT", "/projects/start"
+        - if user_signed_in?
+          li class=(page == 'project' ? 'current' : '')
+            = link_to "PROJECTS", "/projects/list"
+          - if current_user.admin
+            li class=(page == 'user' ? 'current' : '')
+              = link_to "USERS", "/normal_users/list"
+            li class=(page == 'designer' ? 'current' : '')
+              = link_to "DESIGNERS", "/designers/list"
+        - unless user_signed_in?
+          / li class=(page == 'agencies' ? 'current' : '')
+          /   = link_to "FOR AGENCIES", "/agencies"
+          li class=(page == 'apply' ? 'current' : '')
+            = link_to "JOIN THE TEAM", "/apply"
+        - unless page == 'project' && !user_signed_in? && false
+          - unless user_signed_in?
+            li[ class=(page == 'profile' ? 'current' : '')]
+              - if mobile_device?
+                a.popup-link-mobile#userlink[href="/popups/login"]
+                  | LOGIN
+              - else
+                a.popup-link#userlink[href="/popups/login"]
+                  | LOGIN
+          - else
+            li[ class=(page == 'profile' ? 'current' : '')]
+              a#userlink[href="/profile" data-userid=current_user.id]
+                | PROFILE
+        - else
+          li
+            - if mobile_device?
+              a.popup-link-mobile.hidden#userlink[href="/popups/login"]
+                | LOGIN
+            - else
+              a.popup-link.hidden#userlink[href="/popups/login"]
+                | LOGIN
+
+
+javascript:
+  jQuery(document).ready(function($) {
+    
+    $('.ui.toggle.checkbox').on('click', function() {
+      var is_available = $(this).hasClass('checked');
+      var user_id = $('#user-id').val();
+      $.ajax({
+        type: 'post',
+        url:  '/users/' + user_id + '/update_designer_availability.json',
+        data: {
+          is_available:   is_available
+        },
+        success:  function(data) {
+          console.log('success available');
+      }});
+
+    });
+    
+  });
